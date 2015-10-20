@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+
+#
+# ├── change-touchpad-status
+# │   ├── get-touchpad-id.py
+# │   └── tp
+# ├── get-touchpad-id.py -> change-touchpad-status/get-touchpad-id.py
+# ├── tp -> change-touchpad-status/tp
+#
+# Make symbolic links in the owning folder:
+#    ln -s change-touchpad-status/get-touchpad-id.py get-touchpad-id.py
+#    ln -s change-touchpad-status/tp tp
+
+status=$1
+
+if [[ -n "$status" ]]; then
+    if [[ "$status" == "off" ]]; then
+        xinput list | python get-touchpad-id.py 0
+    else
+        xinput list | python get-touchpad-id.py 1
+    fi
+else
+    echo ---------------------------------
+    echo Toggle touchpad status
+    echo '    '  tp on  = enabled touchpad
+    echo '    '  tp off = disable touchpad
+fi
+
