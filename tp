@@ -15,15 +15,15 @@
 status=$1
 
 if [[ -n "$status" ]]; then
-    if [[ "$status" == "off" ]]; then
-        xinput list | python get-touchpad-id.py 0
-    else
+    if [[ "$status" == "on" ]]; then
         xinput list | python get-touchpad-id.py 1
+    else
+        xinput list | python get-touchpad-id.py 0
     fi
 else
     echo ---------------------------------
     echo Toggle touchpad status
-    echo '    '  tp on  = enabled touchpad
-    echo '    '  tp off = disable touchpad
+    echo '    '  tp on  = enable touchpad
+    echo '    '  tp off = \(or anything but but \'on\'\) = disable touchpad
 fi
 
