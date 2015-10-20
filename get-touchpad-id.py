@@ -34,10 +34,9 @@ import string
 import os
 import sys
 
-data = sys.stdin.readlines()
-
 touchpadStatus = str(sys.argv[1])
 
+data = sys.stdin.readlines()
 for line in data:
     if re.search('Synaptics TouchPad', line):
         match = re.search('id=(\d{1,2})', line)
