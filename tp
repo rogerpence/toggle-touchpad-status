@@ -16,9 +16,9 @@ status=$1
 
 if [[ -n "$status" ]]; then
     if [[ "$status" == "on" ]]; then
-        xinput list | python get-touchpad-id.py 1
+        xinput list | python ~/PublicScripts/get-touchpad-id.py 1
     else
-        xinput list | python get-touchpad-id.py 0
+        xinput list | python ~/PublicScripts/get-touchpad-id.py 0
     fi
 else
     echo ---------------------------------
